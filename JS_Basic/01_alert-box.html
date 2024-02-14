@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .alert-box{
+        .alert-box {
             background-color: skyblue;
             padding: 20px;
             color: white;
             border-radius: 5px;
             display: none;
         }
-        .alert-btn{
+
+        .alert-btn {
             background-color: red;
             padding: 8px 12px;
             border-radius: 5px;
             color: #fff;
             border: none;
         }
-        .login-form{
+
+        .login-form {
             background-color: sandybrown;
             padding: 20px;
             color: white;
@@ -28,44 +31,25 @@
         }
     </style>
 </head>
+
 <body>
-    <div id="alertBox" class="alert-box">알림창 <button onclick="알림창열기('none')">X</button></div>
-    <div id="id" class="login-form" onclick="">아이디를 입력하세요 <button onclick="아이디버튼('none')"></button></div>
-    <div id="pw" class="login-form" onclick="">비밀번호를 입력하세요 <button onclick="비밀번호버튼('none')"></button></div>
-
-    <button onclick="알림창열기('block')" class="alert-btn">버튼</button>
-    <button onclick="아이디버튼('block')" class="alert-btn">아이디</button>
-    <button onclick="비밀번호버튼('block')" class="alert-btn">비밀번호</button>
-
     <div class="alert-box" id="alert">
         <p id="title">알림창</p>
-        <button>닫기</button>
+        <button id="close" class="btn_close">닫기</button>
     </div>
-
-    <button onclick="아이디알림창()">버튼1</button>
-    <button>버튼2</button>
-
+    <button onclick="알림창('아이디를 입력해주세요.','block')">아이디</button>
+    <button onclick="알림창('비밀번호를 입력해주세요.','block')">비밀번호</button>
 
     <script>
-        function 알림창열기(blank){
-            document.getElementById('alertBox').style.display = blank;
-        }
-        function 아이디버튼(blank){
-            document.getElementById('id').style.display = blank;
-        }
-        function 비밀번호버튼(blank){
-            document.getElementById('pw').style.display = blank;
+        function 알림창(메세지, 온오프) {
+            document.getElementById('alert').style.display = 온오프;
+            document.getElementById('title').innerHTML = 메세지;
         }
 
-        function 아이디알림창(){
-            document.getElementById('title').innerHTML = '아이디를 입력하세요';
-            document.getElementById('alert').style.display = 'block';
-        }
-        function 비번알림창(){
-            document.getElementById('title').innerHTML = '비밀번호를 입력하세요';
-            document.getElementById('alert').style.display = 'block';
-        }
-
+        document.getElementById('close').addEventListener('click', function(){
+            document.getElementById('alert').style.display = 'none'
+        });
     </script>
 </body>
+
 </html>
