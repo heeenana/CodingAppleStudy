@@ -19,10 +19,53 @@
             color: #fff;
             border: none;
         }
+        .login-form{
+            background-color: sandybrown;
+            padding: 20px;
+            color: white;
+            border-radius: 5px;
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <div id="alertBox" class="alert-box">알림창 <button onclick="document.getElementById('alertBox').style.display = 'none'">X</button></div>
-    <button onclick="document.getElementById('alertBox').style.display = 'block'" class="alert-btn">버튼</button>
+    <div id="alertBox" class="alert-box">알림창 <button onclick="알림창열기('none')">X</button></div>
+    <div id="id" class="login-form" onclick="">아이디를 입력하세요 <button onclick="아이디버튼('none')"></button></div>
+    <div id="pw" class="login-form" onclick="">비밀번호를 입력하세요 <button onclick="비밀번호버튼('none')"></button></div>
+
+    <button onclick="알림창열기('block')" class="alert-btn">버튼</button>
+    <button onclick="아이디버튼('block')" class="alert-btn">아이디</button>
+    <button onclick="비밀번호버튼('block')" class="alert-btn">비밀번호</button>
+
+    <div class="alert-box" id="alert">
+        <p id="title">알림창</p>
+        <button>닫기</button>
+    </div>
+
+    <button onclick="아이디알림창()">버튼1</button>
+    <button>버튼2</button>
+
+
+    <script>
+        function 알림창열기(blank){
+            document.getElementById('alertBox').style.display = blank;
+        }
+        function 아이디버튼(blank){
+            document.getElementById('id').style.display = blank;
+        }
+        function 비밀번호버튼(blank){
+            document.getElementById('pw').style.display = blank;
+        }
+
+        function 아이디알림창(){
+            document.getElementById('title').innerHTML = '아이디를 입력하세요';
+            document.getElementById('alert').style.display = 'block';
+        }
+        function 비번알림창(){
+            document.getElementById('title').innerHTML = '비밀번호를 입력하세요';
+            document.getElementById('alert').style.display = 'block';
+        }
+
+    </script>
 </body>
 </html>
