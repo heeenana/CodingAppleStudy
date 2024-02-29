@@ -11,25 +11,38 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <style>
+
     </style>
 </head>
 
 <body>
-    <form action="success.html">
-        <div class="my-3">
-            <input type="text" class="form-control" id="email">
-        </div>
-        <div class="my-3">
-            <input type="password" class="form-control" id="password">
-        </div>
-        <button type="submit" class="btn btn-primary">전송</button>
-        <button type="submit" class="btn btn-danger" id="close" autocomplete="off">닫기</button>
-    </form>
+    <div class="alert alert-danger">
+        <span id="num">5</span>초이내 구매시 사인품 증정
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.getElementById('email').addEventListener('input', function () {
-            console.log('안녕')
-        });
+
+        // var count = 5;
+
+        // setInterval(function(){
+        //     count -= 1;
+        //     if(count >= 0){
+        //         document.querySelector('#num').innerHTML = count;
+        //     }
+        // }, 1000)
+
+        var count = 5;
+
+        setInterval(function () {
+            count -= 1;
+            if (count >= 0) {
+                document.querySelector('#num').innerHTML = count;
+            } if (count < 0) {
+                document.querySelector('.alert-danger').style.display = "none";
+            }
+        }, 1000);
+
     </script>
 </body>
 
